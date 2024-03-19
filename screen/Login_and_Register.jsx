@@ -18,7 +18,7 @@ const Firstpage = ({ navigation }) => {
               <Button style={styles.button_container} mode="contained" onPress={() => navigation.navigate('Login')}>
                   <Text style={{ color: 'white' }}>Login</Text>
               </Button>
-              <Button style={styles.button_container_regsiter} mode="contained" onPress={() => console.log('Pressed')}>
+              <Button style={styles.button_container_regsiter} mode="contained" onPress={() => navigation.navigate('Register')}>
                   <Text style={{ color: 'black' }}>Register</Text>
               </Button>
         </View>

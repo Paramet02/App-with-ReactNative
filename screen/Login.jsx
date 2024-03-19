@@ -51,7 +51,7 @@ const Login = ({ navigation }) => {
                 <Text >Already have an account?</Text>
             </View>
             <View>
-                <Button onPress={() => console.log('Pressed')}> 
+                <Button onPress={() => navigation.navigate('Register')}> 
                     <Text style={{color : 'darkturquoise'}}>Register Now</Text>
                 </Button>
             </View>

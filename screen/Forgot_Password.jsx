@@ -13,11 +13,15 @@ const Forgot_Password = ({navigation}) => {
                     <Text style={{color : 'black'}}>Go back</Text>
                 </Button>
             </View>
-            <View style={{flex : 0.25 , backgroundColor : 'green' , justifyContent : 'center' , alignItems : 'center'}}>
-                <Text style={styles.fontcontainer}>Forgot Password?</Text>
+            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                <View style={{width : 275 , height : 50}}>
+                    <Text style={styles.fontcontainer}>Forgot Password?</Text>
+                </View>
             </View>
-            <View style={{justifyContent : 'center' , alignItems : 'center',paddingLeft : 35 , backgroundColor : 'blue'}}>
-                <Text >Don't worry! It occurs. Please enter the email address linked with your account.</Text>
+            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                <View style={{width : 275 , height : 60 }}>
+                    <Text style={styles.fontSizecontainer}>Don't worry! It occurs. Please enter the email address linked with your account.</Text>
+                </View>
             </View>
             <View style={styles.Textinputcontainer}>
                 <TextInput
@@ -28,9 +32,23 @@ const Forgot_Password = ({navigation}) => {
                 />
             </View>
             <View style={{flex : 1 ,}}>
-            <Button style={styles.logincontainer} mode="contained" onPress={() => console.log('Pressed')}>
-                Login
-            </Button>
+                <Button style={styles.logincontainer} mode="contained" onPress={() => console.log('Pressed')}>
+                    Send Code
+                </Button>
+            </View>
+            <View style={{flex : 0.15 , flexDirection : 'row' ,justifyContent : 'center' , alignItems : 'center'}}>
+                <View>
+                    <Text>
+                        Remember Password?
+                    </Text>
+                </View>
+                <View>
+                    <Button onPress={() => navigation.navigate('Login')}>
+                        <Text style={{color : 'darkturquoise'}}>
+                            Login
+                        </Text>
+                    </Button>
+                </View>
             </View>
         </View>
     )
@@ -40,11 +58,11 @@ export default Forgot_Password
 
 const styles = StyleSheet.create({
     buttoncontainer: {
-        flex : 0.15,
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'flex-start', 
         paddingTop : 10,
+        paddingBottom : 30
     },
     fontcontainer: {
         color : 'black',
@@ -55,13 +73,18 @@ const styles = StyleSheet.create({
         margin: 5,
         marginRight: 20,
         marginLeft: 30,
-        paddingTop : 20
+        paddingTop : 5
     },
     logincontainer: {
         borderRadius: 5, 
         width: 351,
         alignSelf: 'center',
         padding: 8,
-        marginTop : 20
+        marginTop : 20,
+        backgroundColor : 'black'
+    },
+    fontSizecontainer: {
+        color : 'black',
+        fontSize : 15
     },
 });

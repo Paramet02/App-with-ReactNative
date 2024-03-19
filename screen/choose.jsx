@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { TextInput, Button  } from 'react-native-paper';
 

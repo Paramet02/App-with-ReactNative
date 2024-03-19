@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { TextInput, Button  } from 'react-native-paper';
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     arrowcontainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'flex-start', // Optional: Center vertically
+        alignItems: 'flex-start', 
         padding : 10,
     },
 });

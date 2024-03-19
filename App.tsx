@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import React from 'react'
-import Login from './sereen/Login'
-import Firstpage from './sereen/firstpage'
-import Choose from './sereen/choose'
-import Forgot_Password from './sereen/Forgot_Password'
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import Login from './screen/Login';
+import Firstpage from './screen/firstpage';
+import Choose from './screen/choose';
+import Forgot_Password from './screen/Forgot_Password';
 
 const Stack = createNativeStackNavigator();
 

@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start', 
         paddingTop : 10,
-        backgroundColor : 'red'
     },
     fontcontainer: {
         color : 'black',
@@ -59,10 +58,9 @@ const styles = StyleSheet.create({
         paddingTop : 20
     },
     logincontainer: {
-        borderRadius: 5, // Add rounded corners (optional)
-        width: 351, // Set desired width
+        borderRadius: 5, 
+        width: 351,
         alignSelf: 'center',
-        backgroundColor: 'black',
         padding: 8,
         marginTop : 20
     },

@@ -69,26 +69,26 @@ const styles = StyleSheet.create({
     container2: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignItems: 'center', // Optional: Center vertically
+        alignItems: 'center', 
         padding : 10,
     },
     logincontainer: {
-        borderRadius: 5, // Add rounded corners (optional)
-        width: 351, // Set desired width
+        borderRadius: 5, 
+        width: 351,
         alignSelf: 'center',
         backgroundColor: 'black',
         padding: 8
     },
     register: {
         flexDirection: 'row',
-        justifyContent: 'flex-row', // Align button to bottom
+        justifyContent: 'flex-row', 
         padding : 20,
         top: 210,
     },
     textbutton: {
         backgroundColor : 'green',
         flexDirection: 'row',
-        justifyContent: 'center', // Align button to bottom
+        justifyContent: 'center',
         color : 'black'
     },
     imgcontainer: {
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     arrowcontainer: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignItems: 'flex-start', // Optional: Center vertically
+        alignItems: 'flex-start',
         padding : 10,
     },
   });

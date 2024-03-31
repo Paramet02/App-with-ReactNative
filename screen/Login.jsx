@@ -42,7 +42,7 @@ const Login = ({ navigation }) => {
             </Button>
         </View>
         <View style={{flex : 1}}>
-            <Button style={styles.logincontainer} mode="contained" onPress={() => console.log('Pressed')}>
+            <Button style={styles.logincontainer} mode="contained" onPress={() => navigation.navigate('UserMain')}>
                 Login
             </Button>
         </View>

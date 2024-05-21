@@ -3,6 +3,10 @@ import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
+// -- import icons form github -- //
+import Icon from 'react-native-vector-icons/AntDesign';
+
+
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -11,9 +15,9 @@ const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
         <View style={styles.arrowcontainer}>
-            <Button onPress={() => navigation.goBack()}>
-                <Text style={{color : 'black'}}>Go back</Text>
-            </Button>
+            <View style={{ flexDirection : 'row' , justifyContent : 'flex-start' }}>
+                <Icon name="leftsquareo" size={45} color="black" onPress={() => navigation.goBack()}/>
+            </View>
         </View>
         <View>
             <Image style={styles.imgcontainer} source={require('../img/Logo.png')}/>

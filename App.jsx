@@ -3,10 +3,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// -- import icons form github -- //
+import Icon from 'react-native-vector-icons/AntDesign';
+
 // -- import login page and register -- //
 import React from 'react';
 import Login from './screen/Login';
-import Firstpage from './screen/Login_and_Register';
+import Firstpage from './screen/LoginScreen';
 import Choose from './screen/choose';
 import Forgot_Password from './screen/Forgot_Password';
 import Register from './screen/Register';
@@ -23,8 +26,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Choose" component={Choose} options={{ headerShown : false }}/>
-        <Stack.Screen name="firstpage" component={Firstpage} options={{ headerShown : false }}/>
+        <Stack.Screen name="First" component={Firstpage} options={{ headerShown : false }}/>
         <Stack.Screen name="Login" component={Login} options={{ headerShown : false }}/>
         <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown : false }}/>
         <Stack.Screen name="Register" component={Register} options={{ headerShown : false }}/>
@@ -38,7 +40,10 @@ export default App
 
 const UserContent = () => {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator screenOptions={{ 
+      headerShown: false , 
+      tabBarStyle: { backgroundColor : '#00008b' } 
+      }}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name='Charge' component={Charge} />
       <Tab.Screen name="Map" component={Profile} />

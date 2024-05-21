@@ -3,6 +3,9 @@ import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
+// -- import icons form github -- //
+import Icon from 'react-native-vector-icons/AntDesign';
+
 const Home = () => {
   return (
     <View style={{flex : 1}}>
@@ -12,7 +15,6 @@ const Home = () => {
         </View>
         <View style={{flexDirection : 'row'}}>
           <View style={{ width : 50 , height : 50 , backgroundColor : 'black'}}></View>
-          <View style={{ width : 50 , height : 50 , backgroundColor : 'red'}}></View>
         </View>
       </View>
     </View>

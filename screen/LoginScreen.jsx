@@ -7,9 +7,6 @@ const Firstpage = ({ navigation }) => {
   return (
     <View style={styles.container}>
         <View style={styles.arrowcontainer}>
-          <Button onPress={() => navigation.goBack()}>
-              <Text style={{ color: 'black' }}>Go back</Text>
-          </Button>
         </View>
         <View style={styles.container2}>
               <View style={{ justifyContent: 'center', alignItems: 'center', paddingBottom: 30 }}>

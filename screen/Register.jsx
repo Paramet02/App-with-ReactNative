@@ -3,6 +3,10 @@ import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
+// -- import icons form github -- //
+import Icon from 'react-native-vector-icons/AntDesign';
+
+
 const Register = ({navigation}) => {
 
     const [Username, setUsername] = useState("");
@@ -13,9 +17,7 @@ const Register = ({navigation}) => {
   return (
     <View style={{flex : 1}}>
         <View style={{flexDirection : 'row' , justifyContent : 'flex-start' , alignItems: 'flex-start' ,paddingBottom : 40, paddingTop : 10,paddingLeft : 5}}>
-            <Button onPress={() => navigation.goBack()}>
-                <Text style={{color : 'black'}}>Go back</Text>
-            </Button>
+                <Icon name="leftsquareo" size={45} color="black" onPress={() => navigation.goBack()}/>
         </View>
         <View style={{justifyContent : 'center' , alignItems : 'center',paddingBottom : 30}}>
                 <Text style={styles.fontcontainer}>Create an account</Text>

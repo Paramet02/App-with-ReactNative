@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, Image, StyleSheet , TouchableOpacity  } from 'react-native';
 import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
@@ -6,7 +6,7 @@ import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2
 // -- import icons form github -- //
 import Icon from 'react-native-vector-icons/AntDesign';
 
-
+const backward = require("../img/back.png")
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -14,15 +14,23 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.arrowcontainer}>
-            <View style={{ flexDirection : 'row' , justifyContent : 'flex-start' }}>
-                <Icon name="leftsquareo" size={45} color="black" onPress={() => navigation.goBack()}/>
+
+        {/* BACK WARD */}
+        <View style={styles.Arrow}>
+            <View>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image source={backward} style={styles.img}/>
+                </TouchableOpacity>
             </View>
         </View>
+
+        {/* IMG */}
         <View>
-            <Image style={styles.imgcontainer} source={require('../img/Logo.png')}/>
+            <Image style={styles.Img} source={require('../img/Logo.png')}/>
         </View>
-        <View style={styles.Textinputcontainer}>
+
+        {/* TEXT INPUT */}
+        <View style={styles.Texting}>
             <TextInput
             mode="outlined"
             label="Enter your email"
@@ -30,7 +38,7 @@ const Login = ({ navigation }) => {
             onChangeText={text => setUsername(text)}
             />
         </View>
-        <View  style={styles.Textinputcontainer}>
+        <View  style={styles.Texting}>
             <TextInput
             mode="outlined"
             label="Enter your password"
@@ -40,16 +48,20 @@ const Login = ({ navigation }) => {
             onChangeText={text => setPassword(text)}
             />
         </View>
+
+        {/* BUTTON */}
         <View>
             <Button style={styles.container2} onPress={() => navigation.navigate('Forgot_Password')}>
-                <Text style={{color : 'black'}}>Forgot Password?</Text> 
+                <Text style={{color : '#6A707C'}}>Forgot Password?</Text> 
             </Button>
         </View>
         <View style={{flex : 1}}>
-            <Button style={styles.logincontainer} mode="contained" onPress={() => navigation.navigate('UserMain')}>
+            <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('UserMain')}>
                 Login
             </Button>
         </View>
+
+        {/* BUTTON 2 */}
         <View style={{flex : 0.25 , flexDirection : 'row' ,justifyContent : 'center' , alignItems : 'center'}}>
             <View>
                 <Text >Already have an account?</Text>
@@ -69,6 +81,7 @@ export default Login;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor : "white"
     },
     container2: {
         flexDirection: 'row',
@@ -76,8 +89,8 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         padding : 10,
     },
-    logincontainer: {
-        borderRadius: 5, 
+    Login: {
+        borderRadius: 10, 
         width: 351,
         alignSelf: 'center',
         backgroundColor: 'black',
@@ -89,13 +102,7 @@ const styles = StyleSheet.create({
         padding : 20,
         top: 210,
     },
-    textbutton: {
-        backgroundColor : 'green',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        color : 'black'
-    },
-    imgcontainer: {
+    Img: {
         alignSelf: 'center',
         padding : 20,
         margin : 15,
@@ -106,15 +113,19 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderTopLeftRadius: 20,
     },
-    Textinputcontainer: {
+    Texting: {
         margin: 5,
         marginRight: 20,
         marginLeft: 30,
     },
-    arrowcontainer: {
+    Arrow: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         padding : 10,
     },
+    img : {
+        width : 41,
+        height : 41
+    }
   });

@@ -9,10 +9,10 @@ const Choose = ({ navigation }) => {
                   <View style={{ justifyContent: 'center', alignItems: 'center', paddingBottom: 20 }}>
                       <Image style={{ height: 450, width: 380 }} source={require('../img/GroupLogo.png')}></Image>
                   </View>
-                  <Button style={styles.button_container} mode="contained" onPress={() => navigation.navigate('Login')}>
+                  <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('Login')}>
                       <Text style={{ color: 'white' }}>Partner</Text>
                   </Button>
-                  <Button style={styles.button_container_regsiter} mode="contained" onPress={() => navigation.navigate('firstpage')}>
+                  <Button style={styles.Register} mode="contained" onPress={() => navigation.navigate('firstpage')}>
                       <Text style={{ color: 'black' }}>User</Text>
                   </Button>
             </View>
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor : '#DFEDF2'
     },
-    button_container: {
+    button: {
         padding : 4,
         margin : 6,
         backgroundColor : 'black'
     },
-    button_container_regsiter: {
+    Register: {
         padding : 4,
         margin : 6,
         backgroundColor : 'white'

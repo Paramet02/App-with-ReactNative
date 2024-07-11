@@ -1,29 +1,42 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, Image, StyleSheet , TouchableOpacity  } from 'react-native';
 import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+
+
+const backward = require("../img/back.png")
 
 const Forgot_Password = ({navigation}) => {
     const [username, setUsername] = useState("");
 
     return (
-        <View style={{flex : 1}}>
-            <View style={styles.buttoncontainer}>
-                <Button onPress={() => navigation.goBack()}>
-                    <Text style={{color : 'black'}}>Go back</Text>
-                </Button>
+        <View style={{flex : 1 , backgroundColor : "white"}}>
+
+            {/* BACK WARD */}
+            <View style={styles.Arrow}>
+                <View>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={backward} style={styles.img}/>
+                    </TouchableOpacity>
+                </View>
             </View>
+
+            {/* HEAD */}
             <View style={{justifyContent : 'center' , alignItems : 'center'}}>
                 <View style={{width : 275 , height : 50}}>
-                    <Text style={styles.fontcontainer}>Forgot Password?</Text>
+                    <Text style={styles.font}>Forgot Password?</Text>
                 </View>
             </View>
+
+            {/* BODY */}
             <View style={{justifyContent : 'center' , alignItems : 'center'}}>
                 <View style={{width : 275 , height : 60 }}>
-                    <Text style={styles.fontSizecontainer}>Don't worry! It occurs. Please enter the email address linked with your account.</Text>
+                    <Text style={styles.fontSize}>Don't worry! It occurs. Please enter the email address linked with your account.</Text>
                 </View>
             </View>
-            <View style={styles.Textinputcontainer}>
+
+            {/* TEXT INPUT */}
+            <View style={styles.Texting}>
                 <TextInput
                 mode="outlined"
                 label="Enter your email"
@@ -31,11 +44,15 @@ const Forgot_Password = ({navigation}) => {
                 onChangeText={text => setUsername(text)}
                 />
             </View>
-            <View style={{flex : 1 ,}}>
-                <Button style={styles.logincontainer} mode="contained" onPress={() => console.log('Pressed')}>
+
+            {/* BUTTON */}
+            <View style={{flex : 1 }}>
+                <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('OTP')}>
                     Send Code
                 </Button>
             </View>
+
+            {/* BUTTON 2 */}
             <View style={{flex : 0.15 , flexDirection : 'row' ,justifyContent : 'center' , alignItems : 'center'}}>
                 <View>
                     <Text>
@@ -57,34 +74,44 @@ const Forgot_Password = ({navigation}) => {
 export default Forgot_Password
 
 const styles = StyleSheet.create({
-    buttoncontainer: {
+    button: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'flex-start', 
         paddingTop : 10,
         paddingBottom : 30
     },
-    fontcontainer: {
+    font: {
         color : 'black',
         fontWeight: 'bold',
         fontSize: 30,
     },
-    Textinputcontainer: {
+    Texting: {
         margin: 5,
         marginRight: 20,
         marginLeft: 30,
         paddingTop : 5
     },
-    logincontainer: {
-        borderRadius: 5, 
+    Login: {
+        borderRadius: 10, 
         width: 351,
         alignSelf: 'center',
         padding: 8,
         marginTop : 20,
-        backgroundColor : 'black'
+        backgroundColor: 'black'
     },
-    fontSizecontainer: {
+    fontSize: {
         color : 'black',
         fontSize : 15
+    },
+    img : {
+        width : 41,
+        height : 41
+    },
+    Arrow: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        padding : 10,
     },
 });

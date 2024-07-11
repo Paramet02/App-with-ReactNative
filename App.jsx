@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text } from '@react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -6,18 +6,21 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // -- import icons form github -- //
 import Icon from 'react-native-vector-icons/AntDesign';
 
-// -- import login page and register -- //
+// -- import form screen -- //
 import React from 'react';
 import Login from './screen/Login';
-import Firstpage from './screen/LoginScreen';
+import Screen from './screen/Screen';
 import Choose from './screen/choose';
 import Forgot_Password from './screen/Forgot_Password';
 import Register from './screen/Register';
+import New_password from './screen/New_password';
+import OTP from './screen/OTP';
 
-// -- import main content for user -- //
-import Home from './Maincontent/Home';
-import Profile from './Maincontent/Profile';
-import Charge from './Maincontent/Charge';
+// -- import form main  -- //
+import Home from './main/Home';
+import Profile from './main/Profile';
+import Charge from './main/Charge';
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,9 +29,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="First" component={Firstpage} options={{ headerShown : false }}/>
+        <Stack.Screen name="Screen" component={Screen} options={{ headerShown : false }}/>
         <Stack.Screen name="Login" component={Login} options={{ headerShown : false }}/>
         <Stack.Screen name="Forgot_Password" component={Forgot_Password} options={{ headerShown : false }}/>
+        <Stack.Screen name="New_password" component={New_password} options={{ headerShown : false }}/>
+        <Stack.Screen name="OTP" component={OTP} options={{ headerShown : false }}/>
         <Stack.Screen name="Register" component={Register} options={{ headerShown : false }}/>
         <Stack.Screen name="UserMain" component={UserContent} options={{ headerShown : false }}/>
       </Stack.Navigator>

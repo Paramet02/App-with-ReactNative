@@ -1,65 +1,70 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet , TouchableOpacity  } from 'react-native';
-
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet , TouchableOpacity, KeyboardAvoidingView  } from 'react-native';
+import { TextInput, Button  } from 'react-native-paper';
 
 const backward = require("../img/back.png")
 
 
-const New_password = () => {
+const New_password = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
 
   return (
-    <View style={{flex : 1 , backgroundColor : "white"}}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+        <View style={{flex : 1 , backgroundColor : "white"}}>
 
-        {/* BACKWARD */}
-        <View style={styles.Arrow}>
-            <View>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Image source={backward} style={styles.img}/>
-                </TouchableOpacity>
+            {/* BACKWARD */}
+            <View style={styles.Arrow}>
+                <View>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={backward} style={styles.img}/>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
+            {/* HEAD */}
+            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                <View style={{width : 300 , height : 50}}>
+                    <Text style={styles.font}>Create new password</Text>
+                </View>
+            </View>
+
+            {/* BODY */}
+            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                <View style={{width : 300 , height : 60 }}>
+                    <Text style={styles.fontSize}>Your new password must be unique from those previously used.</Text>
+                </View>
+            </View>
+            
+            {/* TEXT INPUT */}
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Enter your username"
+                value={username}
+                onChangeText={text => setUsername(text)}
+                />
+            </View>
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Enter your Password"
+                value={Password}
+                onChangeText={text => setPassword(text)}
+                />
+            </View>
+
+            {/* BUTTON */}
+            <View style={{flex : 1}}>
+                <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('Login')}>
+                    Reset Password
+                </Button>
             </View>
         </View>
-
-        {/* HEAD */}
-        <View style={{justifyContent : 'center' , alignItems : 'center'}}>
-            <View style={{width : 275 , height : 50}}>
-                <Text style={styles.font}>Create new password</Text>
-            </View>
-        </View>
-
-        {/* BODY */}
-        <View style={{justifyContent : 'center' , alignItems : 'center'}}>
-            <View style={{width : 275 , height : 60 }}>
-                <Text style={styles.fontSize}>Your new password must be unique from those previously used.</Text>
-            </View>
-        </View>
-        
-        {/* TEXT INPUT */}
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Enter your username"
-            value={username}
-            onChangeText={text => setUsername(text)}
-            />
-        </View>
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Enter your Password"
-            value={Password}
-            onChangeText={text => setPassword(text)}
-            />
-        </View>
-
-        {/* BUTTON */}
-        <View style={{flex : 1}}>
-            <Button style={styles.Login} mode="contained" onPress={() => console.log('Pressed')}>
-                Reset Password
-            </Button>
-        </View>
-    </View>
+    </KeyboardAvoidingView>
 )
 }
 

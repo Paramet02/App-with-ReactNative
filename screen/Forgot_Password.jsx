@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet , TouchableOpacity  } from 'react-native';
+import { View, Text, Image, StyleSheet , TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
@@ -10,64 +10,61 @@ const Forgot_Password = ({navigation}) => {
     const [username, setUsername] = useState("");
 
     return (
-        <View style={{flex : 1 , backgroundColor : "white"}}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ flex: 1 }}
+        >
+            <View style={{flex : 1 , backgroundColor : "white"}}>
 
-            {/* BACK WARD */}
-            <View style={styles.Arrow}>
-                <View>
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Image source={backward} style={styles.img}/>
+                {/* BACK WARD */}
+                <View style={styles.Arrow}>
+                    <View>
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Image source={backward} style={styles.img}/>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+                {/* HEAD */}
+                <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                    <View style={{width : 275 , height : 50}}>
+                        <Text style={styles.font}>Forgot Password?</Text>
+                    </View>
+                </View>
+
+                {/* BODY */}
+                <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                    <View style={{width : 275 , height : 60 }}>
+                        <Text style={styles.fontSize}>Don't worry! It occurs. Please enter the email address linked with your account.</Text>
+                    </View>
+                </View>
+
+                {/* TEXT INPUT */}
+                <View style={styles.Texting}>
+                    <TextInput
+                    mode="outlined"
+                    label="Enter your email"
+                    value={username}
+                    onChangeText={text => setUsername(text)}
+                    />
+                </View>
+
+                {/* BUTTON */}
+                <View style={{flex : 1 }}>
+                    <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('OTP')}>
+                        Send Code
+                    </Button>
+                </View>
+
+                {/* BUTTON 2 */}
+                <View style={styles.container2}>
+                    <Text>Remember Password?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                        <Text style={styles.colorText}> Login</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-
-            {/* HEAD */}
-            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
-                <View style={{width : 275 , height : 50}}>
-                    <Text style={styles.font}>Forgot Password?</Text>
-                </View>
-            </View>
-
-            {/* BODY */}
-            <View style={{justifyContent : 'center' , alignItems : 'center'}}>
-                <View style={{width : 275 , height : 60 }}>
-                    <Text style={styles.fontSize}>Don't worry! It occurs. Please enter the email address linked with your account.</Text>
-                </View>
-            </View>
-
-            {/* TEXT INPUT */}
-            <View style={styles.Texting}>
-                <TextInput
-                mode="outlined"
-                label="Enter your email"
-                value={username}
-                onChangeText={text => setUsername(text)}
-                />
-            </View>
-
-            {/* BUTTON */}
-            <View style={{flex : 1 }}>
-                <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('OTP')}>
-                    Send Code
-                </Button>
-            </View>
-
-            {/* BUTTON 2 */}
-            <View style={{flex : 0.15 , flexDirection : 'row' ,justifyContent : 'center' , alignItems : 'center'}}>
-                <View>
-                    <Text>
-                        Remember Password?
-                    </Text>
-                </View>
-                <View>
-                    <Button onPress={() => navigation.navigate('Login')}>
-                        <Text style={{color : 'darkturquoise'}}>
-                            Login
-                        </Text>
-                    </Button>
-                </View>
-            </View>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
@@ -113,5 +110,15 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         padding : 10,
+    },
+    colorText : {
+      color : '#35C2C1',
+      fontWeight: 'bold'
+    },
+    container2: {
+      flexDirection: 'row',
+      justifyContent: 'center', 
+      alignItems: 'center',
+      paddingBottom: 15
     },
 });

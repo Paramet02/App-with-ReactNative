@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image , TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, Image , TouchableOpacity, KeyboardAvoidingView, Platform} from 'react-native';
 import { TextInput, Button  } from 'react-native-paper';
 import React, { useState, useEffect } from 'react';
 import { black, white } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
@@ -16,75 +16,77 @@ const Register = ({navigation}) => {
     const [Confirm , setConfirm] = useState("");
     
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+        <View style={styles.container}>
 
-        {/* BACK WARD */}
-        <View style={styles.Arrow}>
-            <View>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Image source={backward} style={styles.img}/>
-                </TouchableOpacity>
+            {/* BACK WARD */}
+            <View style={styles.Arrow}>
+                <View>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Image source={backward} style={styles.img}/>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
 
-        {/* HEAD */}
-        <View style={{justifyContent : 'center' , alignItems : 'center',paddingBottom : 30}}>
-                <Text style={styles.Font}>Create an account</Text>
-        </View>
-        
-        {/* TEXT INPUT */}
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Username"
-            value={Username}
-            onChangeText={text => setUsername(text)}
-            />
-        </View>
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Email"
-            value={Email}
-            onChangeText={text => setEmail(text)}
-            />
-        </View>
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Password"
-            value={Password}
-            onChangeText={text => setPassword(text)}
-            />
-        </View>
-        <View style={styles.Texting}>
-            <TextInput
-            mode="outlined"
-            label="Confirm Password"
-            value={Confirm}
-            onChangeText={text => setConfirm(text)}
-            />
-        </View>
-
-        {/* BUTTON */}
-        <View style={{flex : 1, paddingTop : 35}}>
-            <Button style={styles.Login} mode="contained" onPress={() => console.log('Pressed')}>
-                Register
-            </Button>
-        </View>
-
-        {/* BUTTON 2 */}
-        <View style={{flex : 0.25 , flexDirection : 'row' ,justifyContent : 'center' , alignItems : 'center'}}>
-            <View>
-                <Text >Already have an account?</Text>
+            {/* HEAD */}
+            <View style={{justifyContent : 'center' , alignItems : 'center',paddingBottom : 30}}>
+                    <Text style={styles.Font}>Create an account</Text>
             </View>
-            <View>
-                <Button onPress={() => navigation.navigate('Login')}> 
-                    <Text style={{color : 'darkturquoise'}}>Login Now</Text>
+            
+            {/* TEXT INPUT */}
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Username"
+                value={Username}
+                onChangeText={text => setUsername(text)}
+                />
+            </View>
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Email"
+                value={Email}
+                onChangeText={text => setEmail(text)}
+                />
+            </View>
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Password"
+                value={Password}
+                onChangeText={text => setPassword(text)}
+                />
+            </View>
+            <View style={styles.Texting}>
+                <TextInput
+                mode="outlined"
+                label="Confirm Password"
+                value={Confirm}
+                onChangeText={text => setConfirm(text)}
+                />
+            </View>
+
+            {/* BUTTON */}
+            <View style={{flex : 1, paddingTop : 35}}>
+                <Button style={styles.Login} mode="contained" onPress={() => navigation.navigate('Screen')}>
+                    Register
                 </Button>
             </View>
+
+            {/* BUTTON2 */}
+            <View style={styles.container2}>
+                <Text>Already have an account?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.colorText}> Login Now</Text>
+                </TouchableOpacity>
+            </View>
+            
         </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 };
 
@@ -122,4 +124,14 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         padding : 10,
     },
+    container2 : {
+      flexDirection : 'row',
+      justifyContent : 'center', 
+      alignItems : 'center',
+      paddingBottom : 15
+    },
+    colorText : {
+      color : '#35C2C1',
+      fontWeight: 'bold'
+    }
   });
